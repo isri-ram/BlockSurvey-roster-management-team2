@@ -51,7 +51,7 @@ const SignUp = () => {
             required
           />
 
-          <button type="submit" className={styles.button}>
+          <button type="submit" className="mt-4 bg-black hover:bg-red-700  text-white font-bold py-2 px-4 rounded-full">
             Create account
           </button>
         </form>

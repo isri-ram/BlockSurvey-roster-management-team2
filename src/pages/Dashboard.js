@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
+import { gql, useMutation, useSubscription, useQuery } from '@apollo/client';
 
+const GET_ITEMS = gql`
+subscription roster {
+  items {
+    name
+    day {
+      name
+    }
+    entity {
+      name
+    }
+  }
+}
+`;
 const Dashboard = () => {
     const [data, setData] = useState([
       { name: null, shifts: [null, null, null] },
     ]);
   
-    const [days, setDays] = useState(['Day 1', 'Day 2', 'Day 3']);
+  const [days, setDays] = useState(['Day 1', 'Day 2', 'Day 3']);
   const [tableName, setTableName] = useState('Table 1');
-
+  const { data1, loading, error } = useSubscription(GET_ITEMS);
   const addRow = () => {
     setData([...data, { name: 'New Employee', shifts: new Array(days.length).fill('') }]);
   };
