@@ -19,7 +19,6 @@ function App() {
       <NhostApolloProvider nhost={nhost}>
         <BrowserRouter>
           <Routes>
-        
             <Route path="sign-up" element={<SignUp />} />
             <Route path="sign-in" element={<SignIn />} />
             <Route path="/" element={<Layout />}>
